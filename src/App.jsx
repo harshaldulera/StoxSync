@@ -7,17 +7,18 @@ import {
 import "./App.css";
 
 import Login from "./pages/Login";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 function App () {
   return (
     <div>
-      <div className="root">
+      <AuthContextProvider>
         <Router>
           <Routes>
             <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
-      </div>
+      </AuthContextProvider>
     </div>
   );
 } 
