@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { auth } from "../config/firebase";
+import GoogleSignInButton from "../components/GoogleSignInButton";
 
 const Login = () => {
     return (
         <div>
-            <h1>Hello</h1>
+            <h2>Login Page</h2>
+            <GoogleSignInButton />
         </div>
     );
 };
