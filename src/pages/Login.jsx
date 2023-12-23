@@ -1,30 +1,22 @@
 import React, { useEffect } from "react";
-import GoogleButton from "react-google-button";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 import { UserAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { googleSignIn, user } = UserAuth();
+    const { user } = UserAuth();
     const navigate = useNavigate();
 
-    const handleGoogleSignIn = async () => {
-        try {
-            await googleSignIn();
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
     useEffect(() => {
-        if (user != null) {
+        if(user != null) {
             navigate('/login');
         }
-    }, [user]);
+    }, [user, navigate]);
 
     return (
         <div>
             <h2>Login Page</h2>
-            <GoogleButton onClick={handleGoogleSignIn} />
+            <GoogleLoginButton />
         </div>
     );
 };
